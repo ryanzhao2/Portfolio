@@ -257,15 +257,7 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  hr {
-    background-color: ${colors.lightestGray};
-    height: 1px;
-    border-width: 0px;
-    border-style: initial;
-    border-color: initial;
-    border-image: initial;
-    margin: 1rem;
-  }
+
 
   code {
     font-family: ${fonts.SFMono};

@@ -1,15 +1,7 @@
 ---
 sections:
-  - title: Front-end
-    content: "I enjoy making dynamic websites and applications that are also fun to look at! These are the technologies I like to use:"
-    technologies:
-      - React
-      - Next.js
-      - three.js
-      - Tailwind CSS
-
   - title: Languages
-    content: "I am familar with these programming languages:"
+    content: "I am familiar with these programming languages:"
     technologies:
       - Python
       - Java
@@ -21,13 +13,31 @@ sections:
       - HTML/CSS
       - Bash
 
-  - title: Machine Learning
-    content: "I have experience training my own ML models and creating agentic workflows!! Here's what I use:"
+  - title: Frameworks/Libraries
+    content: "I work with various frameworks and libraries for web development and machine learning:"
     technologies:
+      - React
+      - Next.js
+      - three.js
+      - Tailwind CSS
       - TensorFlow
       - Pytorch
       - OpenCV
       - Keras
       - LangChain
       - LlamaIndex
+
+  - title: Developer Tools
+    content: "I use these tools and platforms for development, deployment, and collaboration:"
+    technologies:
+      - Git
+      - Docker
+      - AWS
+      - VS Code
+      - Postman
+      - Figma
+      - Jupyter
+      - GitHub
+      - npm/yarn
+      - Webpack
 --- 
