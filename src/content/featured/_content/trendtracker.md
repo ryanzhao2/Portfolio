@@ -1,0 +1,15 @@
+---
+title: TrendTracker
+date: 2024
+cover: /featured/trendtracker.png
+github: https://github.com/ryanzhao2/trendtracker
+tech:
+  - Python
+  - LSTM
+  - TensorFlow
+  - Data Visualization
+  - Financial APIs
+showInProjects: true
+---
+
+Stock forecasting app using LSTM models to predict trends. Users can visualize historical data, test predictions, and explore future price scenarios. 

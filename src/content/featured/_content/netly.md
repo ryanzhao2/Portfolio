@@ -1,0 +1,15 @@
+---
+title: Netly
+date: 2024
+cover: /featured/netly.png
+github: https://github.com/ryanzhao2/netly
+tech:
+  - Python
+  - OpenCV
+  - TensorFlow
+  - Computer Vision
+  - Machine Learning
+showInProjects: true
+---
+
+AI-powered basketball referee system that detects travels, double dribbles, and interceptions in real-time using computer vision and machine learning. 
