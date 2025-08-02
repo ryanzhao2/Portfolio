@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import useScrollReveal from '../../utils/sr'
+import Image from 'next/image'
 import styled from 'styled-components'
 import { theme, mixins, media, Section, Heading, Dot } from '../../styles'
 import GalleryModal from '../GalleryModal'
@@ -12,6 +13,29 @@ const StyledContainer = styled(Section)`
   position: relative;
   max-width: 1000px;
 `
+
+const StyledLogo = styled.div`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  opacity: 0.8;
+  transition: ${theme.transition};
+  
+  &:hover {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0.9) contrast(1.1);
+  }
+`
+
 const StyledTabs = styled.div`
   display: flex;
   align-items: flex-start;
@@ -89,6 +113,32 @@ const StyledTabButton = styled.button`
     background-color: var(--hue-1);
   }
 `
+
+const StyledTabLogo = styled.div`
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  opacity: 0.8;
+  transition: ${theme.transition};
+  
+  &:hover {
+    opacity: 1;
+  }
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0.9) contrast(1.1);
+  }
+  
+  ${media.thone`
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+  `};
+`
+
 const StyledHighlight = styled.span`
   display: block;
   background: var(--accent-2);
@@ -408,6 +458,17 @@ const Jobs = ({ data }) => {
                 aria-selected={activeTabId === i ? 'true' : 'false'}
                 aria-controls={`panel-${i}`}
                 tabIndex={activeTabId === i ? '0' : '-1'}>
+                {company.toLowerCase().includes('workerbee') && (
+                  <StyledTabLogo>
+                    <Image 
+                      src="/featured/workerbee.jpg" 
+                      alt="WorkerBee Logo" 
+                      width={20} 
+                      height={20}
+                      style={{ objectFit: 'contain' }}
+                    />
+                  </StyledTabLogo>
+                )}
                 <span>{company}</span>
               </StyledTabButton>
             </li>

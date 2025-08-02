@@ -39,7 +39,7 @@ const StyledContainer = styled(Section)`
 
   .swiper-button-prev,
   .swiper-button-next {
-    color: ${colors.white};
+    color: var(--lang-color);
     width: 40px;
     height: 40px;
     opacity: 0.75;
@@ -77,7 +77,7 @@ const StyledContent = styled.div`
 const StyledProjectName = styled.h5`
   font-size: 28px;
   margin: 0 0 20px;
-  color: ${colors.lightestSlate};
+  color: var(--lang-color);
   ${media.tablet`font-size: 24px;`};
   ${media.thone`color: ${colors.white};`};
   a {
@@ -148,7 +148,7 @@ const StyledLinkWrapper = styled.div`
   position: relative;
   margin-top: 10px;
   margin-left: -10px;
-  color: ${colors.lightestSlate};
+  color: var(--light-slate);
 
   a {
     padding: 10px;

@@ -64,7 +64,7 @@ const NavLinks = styled.nav`
   width: 100%;
   flex-direction: column;
   text-align: center;
-  color: ${colors.lightestSlate};
+  color: var(--light-slate);
 `
 
 const NavList = styled.ol`
@@ -102,7 +102,7 @@ const NavLink = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${colors.lightestSlate};
+  color: var(--light-slate);
   &:hover,
   &:focus {
     color: ${colors.green};

@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import useScrollReveal from '../../utils/sr'
-// import { FormattedIcon } from '../icons'
+import Image from 'next/image'
 import styled from 'styled-components'
 import { theme, mixins, Section, Heading, Dot } from '../../styles'
 const { colors, fontSizes, fonts } = theme
@@ -65,18 +65,43 @@ const StyledContent = styled.div`
   }
 `
 
+const StyledLogo = styled.div`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  opacity: 0.8;
+  transition: ${theme.transition};
+  
+  &:hover {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0.9) contrast(1.1);
+  }
+`
+
 const StyledDate = styled.div`
   margin-bottom: 10px;
-  color: ${colors.slate};
+  color: var(--lang-color);
   font-family: ${fonts.SFMono};
   font-size: ${fontSizes.sm};
+  opacity: 0.8;
 `
 
 const StyledSchool = styled.h4`
   margin-bottom: 5px;
   font-size: ${fontSizes.xxl};
   font-weight: 600;
-  color: ${colors.lightestSlate};
+  color: var(--lang-color);
+  padding-right: 80px;
+  opacity: 0.9;
 `
 
 const StyledDegree = styled.h5`
@@ -162,6 +187,17 @@ const Education = ({ data }) => {
               transitionDelay: `${i * 100}ms`
             }}
           >
+            {school.toLowerCase().includes('mcgill') && (
+              <StyledLogo>
+                <Image 
+                  src="/featured/McGill.png" 
+                  alt="McGill University Logo" 
+                  width={60} 
+                  height={60}
+                  style={{ objectFit: 'contain' }}
+                />
+              </StyledLogo>
+            )}
             <StyledDate>{range}</StyledDate>
             <StyledSchool>{school}</StyledSchool>
             <StyledDegree>{title}</StyledDegree>
@@ -172,11 +208,6 @@ const Education = ({ data }) => {
                 ))}
               </ul>
             </StyledDescription>
-            {/* {location && (
-              <StyledLocationIcon>
-                <FormattedIcon name="Location" />
-              </StyledLocationIcon>
-            )} */}
           </StyledContent>
         ))}
       </StyledTimeline>

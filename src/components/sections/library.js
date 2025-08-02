@@ -98,17 +98,18 @@ const StyledBookInfo = styled.div`
 `
 
 const StyledBookTitle = styled.h5`
-  color: ${colors.lightestSlate};
+  color: var(--lang-color);
   font-size: ${fontSizes.lg};
   font-weight: 600;
   margin: 0 0 5px;
 `
 
 const StyledBookAuthor = styled.p`
-  color: ${colors.slate};
+  color: var(--light-slate);
   font-family: ${fonts.SFMono};
   font-size: ${fontSizes.smish};
   margin: 0;
+  opacity: 0.8;
 `
 
 const Library = ({ title, images }) => {

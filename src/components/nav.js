@@ -64,7 +64,7 @@ const StyledNav = styled.nav`
   width: 100% !important;
   max-width: 1200px !important;
   padding: 0 25px !important;
-  color: ${colors.lightestSlate};
+  color: var(--light-slate);
   font-weight: 200;
   font-family: ${fonts.SFMono};
   counter-reset: item 0;
@@ -72,13 +72,6 @@ const StyledNav = styled.nav`
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
-
-  html.light & {
-    color: #2d3748;
-  }
-  html.dark & {
-    color: ${colors.lightestSlate};
-  }
 `
 
 const StyledLogo = styled.div`
@@ -134,15 +127,8 @@ const StyledListLink = styled.a`
   display: flex !important;
   align-items: center !important;
   text-decoration: none;
-  color: ${props => props.$isActive ? colors.green : colors.lightestSlate} !important;
+  color: ${props => props.$isActive ? colors.green : 'var(--light-slate)'} !important;
   transition: color 0.3s ease;
-  
-  html.light & {
-    color: ${props => props.$isActive ? colors.green : '#2d3748'} !important;
-  }
-  html.dark & {
-    color: ${props => props.$isActive ? colors.green : colors.lightestSlate} !important;
-  }
   
   &:hover {
     color: ${colors.green} !important;

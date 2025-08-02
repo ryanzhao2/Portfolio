@@ -43,12 +43,12 @@ const StyledContainer = styled(Section)`
 const StyledOverline = styled.h1`
   color: var(--accent-2);
   margin: 0 0 20px 3px;
-  font-size: ${fontSizes.md};
+  font-size: ${fontSizes.lg};
   font-family: ${fonts.SFMono};
   font-weight: normal;
   animation: ${fadeInUp} 1.2s ease-out;
-  ${media.desktop`font-size: ${fontSizes.sm};`};
-  ${media.tablet`font-size: ${fontSizes.smish};`};
+  ${media.desktop`font-size: ${fontSizes.md};`};
+  ${media.tablet`font-size: ${fontSizes.sm};`};
   
   &:hover {
     color: ${colors.green};
@@ -103,9 +103,9 @@ const FloatingElement = styled.div`
   position: absolute;
   width: 0.5px;
   height: 0.5px;
-  background-color: ${colors.slate};
+  background-color: var(--light-slate);
   border-radius: 50%;
-  opacity: 0.1;
+  opacity: 0.2;
   animation: ${float} 8s ease-in-out infinite;
   
   &:nth-child(1) {
@@ -131,18 +131,18 @@ const StatusIndicator = styled.div`
   margin-top: 40px;
   font-family: ${fonts.SFMono};
   font-size: ${fontSizes.sm};
-  color: ${colors.slate};
-  opacity: 0.6;
+  color: var(--light-slate);
+  opacity: 0.8;
   animation: ${fadeInUp} 1.2s ease-out 0.9s both;
   
   span {
     color: ${colors.green};
     font-weight: 400;
-    opacity: 0.8;
+    opacity: 0.9;
   }
   
   &:hover {
-    opacity: 0.8;
+    opacity: 1;
     transition: opacity 0.5s ease;
   }
 `;
@@ -160,7 +160,6 @@ const Hero = ({ data }) => {
   // Dynamic status messages - more subtle
   const statusMessages = [
     "Currently building something awesome",
-    "Open to new opportunities",
     "Passionate about technology",
     "Always learning new things"
   ];

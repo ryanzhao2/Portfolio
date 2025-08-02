@@ -60,7 +60,7 @@ const StyledTitle = styled.h2`
 
 const StyledCloseButton = styled.button`
   background-color: transparent;
-  color: ${colors.lightSlate};
+  color: var(--light-slate);
   border: none;
   width: 35px;
   height: 35px;
@@ -73,7 +73,7 @@ const StyledCloseButton = styled.button`
   
   &:hover,
   &:focus {
-    color: ${colors.white};
+    color: var(--lang-color);
     transform: scale(1.1);
   }
 `
@@ -94,9 +94,10 @@ const VideoContainer = styled.div`
 const StyledDescription = styled.p`
   font-family: ${fonts.SFMono};
   font-size: ${fontSizes.md};
-  color: ${colors.slate};
+  color: var(--light-slate);
   margin: 20px 0;
   line-height: 1.5;
+  opacity: 0.8;
 `
 
 const VideoModal = ({ isOpen, onClose, videoSrc, title, description }) => {

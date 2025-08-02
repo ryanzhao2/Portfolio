@@ -22,8 +22,9 @@ const StyledDescription = styled.div`
   p {
     font-family: ${fonts.SFMono};
     font-size: ${fontSizes.md};
-    color: ${colors.slate};
+    color: var(--lang-color);
     margin: 0;
+    opacity: 0.8;
   }
 `
 

@@ -105,6 +105,7 @@ const StyledProjectName = styled.h5`
   margin: 0 0 10px;
   font-size: ${fontSizes.xxl};
   color: var(--lang-color);
+  font-weight: 600;
 `
 const StyledProjectDescription = styled.div`
   font-family: ${fonts.SFMono};

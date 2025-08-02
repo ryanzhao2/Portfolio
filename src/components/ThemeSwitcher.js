@@ -10,7 +10,7 @@ const { colors, transition } = theme
 const StyledButton = styled.button`
   background: transparent;
   border: none;
-  color: ${colors.lightestSlate};
+  color: var(--light-slate);
   cursor: pointer;
   padding: 10px;
   border-radius: 50%;
@@ -22,13 +22,6 @@ const StyledButton = styled.button`
   height: 40px;
   position: relative;
   overflow: hidden;
-
-  html.light & {
-    color: #2d3748;
-  }
-  html.dark & {
-    color: ${colors.lightestSlate};
-  }
 
   &:hover:not(.spinning),
   &:focus:not(.spinning) {

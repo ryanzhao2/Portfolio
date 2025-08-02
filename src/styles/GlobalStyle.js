@@ -25,6 +25,8 @@ const GlobalStyle = createGlobalStyle`
     --hue-1: hsla(0, 0%, 100%, 0.5);
     --hue-2: #999;
     --hue-3: crimson;
+    --light-slate: #4a5568;
+    --lightest-slate: #2d3748;
   }
   html.dark {
     --lang-color: #ffffff;
@@ -38,6 +40,8 @@ const GlobalStyle = createGlobalStyle`
     --hue-1: transparent;
     --hue-2: #ffffff;
     --hue-3: #c26af5;
+    --light-slate: #B2BBD3;
+    --lightest-slate: #E7F0F7;
   }
   html {
     box-sizing: border-box;
@@ -79,8 +83,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ::selection {
-    background-color: ${colors.slate};
-    color: ${colors.lightestSlate};
+    background-color: var(--light-slate);
+    color: var(--lang-color);
   }
 
   #root {

@@ -33,7 +33,8 @@ const StyledList = styled.ul`
     width: 1px;
     height: 90px;
     margin: 0 auto;
-    background-color: ${colors.lightSlate};
+    background-color: var(--lang-color);
+    opacity: 0.3;
   }
 
   li:last-of-type {
