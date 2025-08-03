@@ -74,14 +74,15 @@ const StyledTitle = styled.h2`
 `;
 
 const StyledSubtitle = styled.h3`
-  color: inherit;
-  font-size: 80px;
+  color: var(--light-slate);
+  font-size: 60px;
   line-height: 1.1;
+  margin: 0;
   animation: ${fadeInUp} 1.2s ease-out 0.6s both;
-  ${media.desktop`font-size: 70px;`};
-  ${media.tablet`font-size: 60px;`};
-  ${media.phablet`font-size: 50px;`};
-  ${media.phone`font-size: 40px;`};
+  ${media.desktop`font-size: 50px;`};
+  ${media.tablet`font-size: 45px;`};
+  ${media.phablet`font-size: 40px;`};
+  ${media.phone`font-size: 35px;`};
   
   &:hover {
     transform: scale(1.005);
@@ -128,7 +129,7 @@ const FloatingElement = styled.div`
 `;
 
 const StatusIndicator = styled.div`
-  margin-top: 40px;
+  margin-top: 30px;
   font-family: ${fonts.SFMono};
   font-size: ${fontSizes.sm};
   color: var(--light-slate);
@@ -181,18 +182,18 @@ const Hero = ({ data }) => {
     }
   }, [sr, isMounted]);
 
-  // Typewriter effect for subtitle - slower and more subtle
+  // Typewriter effect for subtitle - starts with a delay
   useEffect(() => {
     if (isMounted && currentIndex < subtitle.length) {
       const timeout = setTimeout(() => {
         setDisplayText(subtitle.slice(0, currentIndex + 1));
         setCurrentIndex(currentIndex + 1);
-      }, 150);
+      }, currentIndex === 0 ? 2000 : 150); // 3.5 second delay for first character, then normal speed
       return () => clearTimeout(timeout);
     }
   }, [currentIndex, subtitle, isMounted]);
 
-  // Rotate status messages - slower rotation
+  // Rotate status messages
   useEffect(() => {
     if (isMounted) {
       const interval = setInterval(() => {

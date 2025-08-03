@@ -145,8 +145,8 @@ const Blog = ({ data }) => {
     router.push('/riddles')
   }
 
-  const blogText = `// blog`
-  const descriptionText = `// some of my favorite riddles`
+  const blogText = `Blog`
+  const descriptionText = `some of my favorite riddles`
 
   return (
     <StyledContainer id="blog">
