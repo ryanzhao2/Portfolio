@@ -1,7 +1,7 @@
 ---
 sections:
   - title: Languages
-    content: "I am familiar with these programming languages:"
+    content: "Here are the programming languages I work with:"
     technologies:
       - Python
       - Java
@@ -14,7 +14,7 @@ sections:
       - Bash
 
   - title: Frameworks/Libraries
-    content: "I work with various frameworks and libraries for web development and machine learning:"
+    content: "Frameworks and libraries I use for building apps:"
     technologies:
       - React
       - Next.js
@@ -28,7 +28,7 @@ sections:
       - LlamaIndex
 
   - title: Developer Tools
-    content: "I use these tools and platforms for development, deployment, and collaboration:"
+    content: "Tools and platforms that help me build and deploy projects:"
     technologies:
       - Git
       - Docker

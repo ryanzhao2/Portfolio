@@ -1,12 +1,6 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Pagination, Autoplay } from 'swiper/modules'
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
-import 'swiper/css/autoplay'
 import PropTypes from 'prop-types'
 import Image from 'next/image'
 import { FormattedIcon } from '../icons'
@@ -23,207 +17,142 @@ const StyledContainer = styled(Section)`
   width: 100%;
   padding: 0;
   max-width: 1200px;
+`
+
+const StyledGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  width: 100%;
+  margin-top: 50px;
   
-  .swiper {
-    width: 100%;
-    height: 100%;
-    padding: 0;
-  }
+  ${media.desktop`grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));`};
+  ${media.tablet`grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));`};
+  ${media.thone`grid-template-columns: 1fr; gap: 20px;`};
+`
 
-  .swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+const StyledProjectCard = styled.div`
+  ${mixins.boxShadow};
+  background-color: rgba(250, 250, 250, 0.4);
+  border-radius: ${theme.borderRadius};
+  padding: 25px;
+  transition: ${theme.transition};
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e5e7eb;
+  
+  html.dark & {
+    background-color: rgba(39, 39, 43, 0.4);
+    border: 1px solid #27272a;
   }
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
+    html.dark & {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+  }
+`
 
-  .swiper-button-prev,
-  .swiper-button-next {
+const StyledProjectHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+`
+
+const StyledProjectName = styled.h5`
+  font-size: ${fontSizes.xxl};
+  margin: 0;
+  color: var(--lang-color);
+  font-weight: 600;
+  line-height: 1.2;
+`
+
+const StyledProjectLinks = styled.div`
+  display: flex;
+  gap: 8px;
+  margin-left: 15px;
+  
+  a {
     color: var(--lang-color);
-    width: 40px;
-    height: 40px;
-    opacity: 0.75;
+    padding: 4px;
+    transition: ${theme.transition};
+    opacity: 0.7;
+    
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+    
     &:hover {
+      color: var(--accent-2);
       opacity: 1;
     }
-    &:after {
-      font-size: 20px;
-    }
   }
-  
-  .swiper-pagination-bullet {
-    background-color: ${colors.green};
-  }
+`
 
-  ${media.thone`
-    .swiper-pagination {
-      position: relative;
-      bottom: 0;
-      background: transparent;
-    }
-  `}
-`
-const StyledContent = styled.div`
-  position: relative;
-  grid-column: 1 / 7;
-  grid-row: 1 / -1;
-  ${media.thone`
-    grid-column: 1 / -1;
-    padding: 40px 40px 30px;
-    z-index: 5;
-  `};
-  ${media.phablet`padding: 30px 25px 20px;`};
-`
-const StyledProjectName = styled.h5`
-  font-size: 28px;
-  margin: 0 0 20px;
-  color: var(--lang-color);
-  ${media.tablet`font-size: 24px;`};
-  ${media.thone`color: ${colors.white};`};
-  a {
-    ${media.tablet`display: block;`};
-  }
-`
 const StyledDescription = styled.div`
-  position: relative;
-  z-index: 2;
-  padding: 25px;
-  background-color: var(--hue-1);
   color: var(--lang-color);
-  font-size: ${fontSizes.lg};
-  border-radius: ${theme.borderRadius};
-  max-width: 800px;
-  ${media.thone`
-    background-color: transparent;
-    padding: 20px 0;
-    box-shadow: none;
-    &:hover {
-      box-shadow: none;
-    }
-  `};
+  font-size: ${fontSizes.sm};
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+  opacity: 0.8;
+  
   p {
     margin: 0;
     font-family: ${fonts.SFMono};
     font-size: ${fontSizes.sm};
   }
+  
   a {
     ${mixins.inlineLink};
   }
-
-  /* Dark mode background fix */
-  html.dark & {
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-  }
 `
+
 const StyledTechList = styled.ul`
-  position: relative;
-  z-index: 2;
   display: flex;
   flex-wrap: wrap;
-  padding: 0;
-  margin: 25px 0 10px;
+  gap: 6px;
   list-style: none;
-
+  padding: 0;
+  margin: 0;
+  
   li {
     font-family: ${fonts.SFMono};
-    font-size: ${fontSizes.smish};
+    font-size: ${fontSizes.xs};
     color: var(--accent-2);
-    margin-right: ${theme.margin};
-    margin-bottom: 7px;
+    background-color: rgba(33, 184, 83, 0.1);
+    padding: 3px 6px;
+    border-radius: 3px;
     white-space: nowrap;
-    padding-left: 20px;
-    &:last-of-type {
-      margin-right: 0;
+    border: none;
+    
+    html.dark & {
+      background-color: rgba(33, 184, 83, 0.15);
     }
-    ${media.thone`
-      color: var(--accent-2);
-      margin-right: 10px;
-    `};
   }
 `
-const StyledLinkWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  position: relative;
-  margin-top: 10px;
-  margin-left: -10px;
-  color: var(--light-slate);
 
-  a {
-    padding: 10px;
-    svg {
-      width: 22px;
-      height: 22px;
-    }
-  }
-`
-const StyledFeaturedImg = styled.div`
-  width: 100%;
-  max-width: 100%;
-  vertical-align: middle;
+const StyledImageContainer = styled.div`
+  margin-top: 20px;
+  border-radius: ${theme.borderRadius};
+  overflow: hidden;
   position: relative;
   
   img {
     width: 100%;
-    height: 100%;
+    height: 200px;
     object-fit: cover;
-    object-position: center;
-    border-radius: ${theme.borderRadius};
-    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: ${theme.transition};
   }
-
-  ${media.tablet`
-    object-fit: cover;
-    width: auto;
-    height: 100%;
-  `};
-`
-const StyledImgContainer = styled.a`
-  ${mixins.boxShadow};
-  grid-column: 6 / -1;
-  grid-row: 1 / -1;
-  position: relative;
-  z-index: 1;
-  border-radius: ${theme.borderRadius};
-  transition: ${theme.transition};
-  background-color: transparent;
   
-  ${media.tablet`height: 100%;`};
-  ${media.thone`
-    grid-column: 1 / -1;
-    opacity: 0.25;
-  `};
-
-  &:hover,
-  &:focus {
-    background: transparent;
-  }
-`
-const StyledProjectContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-gap: 10px;
-  align-items: center;
-  margin: 0 auto;
-  padding: 0 50px;
-  max-width: 1200px;
-  ${media.thone`
-    display: block;
-    padding: 0;
-  `};
-`
-const StyledProject = styled.div`
-  display: grid;
-  width: 100%;
-  margin: 0 auto;
-  margin-bottom: 70px;
-  
-  ${media.thone`
-    margin-bottom: 70px;
-  `};
-  &:last-of-type {
-    margin-bottom: 0;
+  &:hover img {
+    transform: scale(1.05);
   }
 `
 
@@ -347,85 +276,70 @@ const Featured = ({ data }) => {
         {data?.title || 'projects'}
       </Heading>
       {data?.featured && data.featured.length > 0 && (
-        <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
-          centeredSlides={true}
-          slidesPerView={1}
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-          }}
-          spaceBetween={50}
-          navigation={true}
-          loop={true}
-          pagination={{
-            clickable: true,
-            dynamicBullets: true,
-          }}
-          style={{ width: '100%', height: '100%' }}
-        >
-          {data.featured.map(({ title, cover, tech, github, content }, i) => (
-            <SwiperSlide key={i}>
-              <StyledProject>
-                <StyledProjectContainer>
-                  <StyledContent>
-                    <StyledProjectName>
-                      {title}
-                    </StyledProjectName>
-                    <StyledDescription>
-                      {Array.isArray(content) ? (
-                        content.map((item, j) => (
-                          <React.Fragment key={j}>
-                            {renderContent(item)}
-                          </React.Fragment>
-                        ))
-                      ) : (
-                        renderContent(content)
-                      )}
-                    </StyledDescription>
-                    <StyledTechList>
-                      {tech.map((tech, j) => (
-                        <li key={j}>{tech}</li>
-                      ))}
-                    </StyledTechList>
-                    <StyledLinkWrapper>
-                      {github && (
-                        <a
-                          href={github}
-                          target="_blank"
-                          rel="nofollow noopener noreferrer"
-                          aria-label="GitHub Link">
-                          <FormattedIcon name="GitHub" />
-                        </a>
-                      )}
-                    </StyledLinkWrapper>
-                  </StyledContent>
-
-                  <StyledImgContainer
-                    href={github || '#'}
-                    target="_blank"
-                    rel="nofollow noopener noreferrer">
-                    <StyledFeaturedImg>
-                      <Image
-                        src={cover}
-                        alt={title}
-                        width={700}
-                        height={438}
-                        quality={95}
-                        style={{
-                          width: '100%',
-                          height: 'auto',
-                          objectFit: 'cover',
-                          objectPosition: 'center',
-                        }}
-                      />
-                    </StyledFeaturedImg>
-                  </StyledImgContainer>
-                </StyledProjectContainer>
-              </StyledProject>
-            </SwiperSlide>
+        <StyledGrid>
+          {data.featured.map(({ title, cover, tech, github, external, content }, i) => (
+            <StyledProjectCard key={i}>
+              <StyledProjectHeader>
+                <StyledProjectName>{title}</StyledProjectName>
+                <StyledProjectLinks>
+                  {github && (
+                    <a
+                      href={github}
+                      target="_blank"
+                      rel="nofollow noopener noreferrer"
+                      aria-label="GitHub Link">
+                      <FormattedIcon name="GitHub" />
+                    </a>
+                  )}
+                  {external && (
+                    <a
+                      href={external}
+                      target="_blank"
+                      rel="nofollow noopener noreferrer"
+                      aria-label="External Link">
+                      <FormattedIcon name="External" />
+                    </a>
+                  )}
+                </StyledProjectLinks>
+              </StyledProjectHeader>
+              
+              <StyledDescription>
+                {Array.isArray(content) ? (
+                  content.map((item, j) => (
+                    <React.Fragment key={j}>
+                      {renderContent(item)}
+                    </React.Fragment>
+                  ))
+                ) : (
+                  renderContent(content)
+                )}
+              </StyledDescription>
+              
+              <StyledTechList>
+                {tech.map((tech, j) => (
+                  <li key={j}>{tech}</li>
+                ))}
+              </StyledTechList>
+              
+              {cover && (
+                <StyledImageContainer>
+                  <Image
+                    src={cover}
+                    alt={title}
+                    width={400}
+                    height={200}
+                    quality={95}
+                    style={{
+                      width: '100%',
+                      height: '200px',
+                      objectFit: 'cover',
+                    }}
+                  />
+                </StyledImageContainer>
+              )}
+            </StyledProjectCard>
           ))}
-        </Swiper>
+        </StyledGrid>
       )}
 
       {currentVideo && (
@@ -448,6 +362,7 @@ Featured.propTypes = {
         title: PropTypes.string.isRequired,
         cover: PropTypes.string.isRequired,
         github: PropTypes.string,
+        external: PropTypes.string,
         tech: PropTypes.arrayOf(PropTypes.string).isRequired,
         content: PropTypes.oneOfType([
           PropTypes.string,

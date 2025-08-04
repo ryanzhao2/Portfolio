@@ -330,7 +330,7 @@ const Nav = () => {
     const targetElement = document.getElementById(targetId);
     
     if (targetElement) {
-      const offset = 120; // Offset to show section title
+      const offset = targetId === 'contact' ? 160 : 120; // Extra offset for contact section
       const targetPosition = targetElement.offsetTop - offset;
       
       window.scrollTo({

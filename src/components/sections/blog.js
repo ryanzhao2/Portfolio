@@ -17,16 +17,15 @@ const StyledContainer = styled(Section)`
 `
 
 const StyledTitle = styled.h4`
-  margin: 0 auto;
+  margin: 0 auto 20px auto;
   font-size: ${fontSizes.h3};
   color: var(--lang-color);
   ${media.tablet`font-size: 24px;`};
 `
 
 const StyledSubtext = styled.p`
-  margin: 0 auto;
+  margin: 0 auto 40px auto;
   font-size: ${fontSizes.sm};
-  margin-top: 5px;
   font-family: ${fonts.SFMono};
   color: var(--lang-color);
   opacity: 0.8;
@@ -34,7 +33,6 @@ const StyledSubtext = styled.p`
 `
 
 const StyledCardContainer = styled.div`
-  margin-top: 50px;
   width: 100%;
   display: flex;
   justify-content: center;

@@ -47,13 +47,18 @@ const StyledContent = styled.div`
   margin-bottom: 50px;
   padding: 25px;
   border-radius: ${theme.borderRadius};
-  background-color: transparent;
-  border: 3px solid ${colors.lightGray};
+  background-color: rgba(250, 250, 250, 0.4);
+  border: 1px solid #e5e7eb;
   transition: ${theme.transition};
   ${mixins.boxShadow};
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  html.dark & {
+    background-color: rgba(39, 39, 43, 0.4);
+    border: 1px solid #27272a;
+  }
 
   &.visible {
     opacity: 1;
@@ -62,6 +67,15 @@ const StyledContent = styled.div`
 
   &:last-child {
     margin-bottom: 0;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
+    html.dark & {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
   }
 `
 

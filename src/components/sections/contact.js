@@ -10,14 +10,15 @@ const { colors, fontSizes, fonts } = theme
 const StyledContainer = styled(Section)`
   text-align: center;
   max-width: 600px;
-  margin: 0 auto 100px;
+  margin: 120px auto 200px;
+  padding: 80px 0;
   a {
     ${mixins.inlineLink};
   }
 `
 
 const StyledDescription = styled.div`
-  margin-bottom: 50px;
+  margin: 40px 0 60px 0;
 
   p {
     font-family: ${fonts.SFMono};
@@ -25,6 +26,7 @@ const StyledDescription = styled.div`
     color: var(--lang-color);
     margin: 0;
     opacity: 0.8;
+    line-height: 1.6;
   }
 `
 
@@ -47,15 +49,34 @@ const StyledHeading = styled(Heading)`
   }
 `
 const StyledTitle = styled.h4`
-  margin: 0 0 20px;
+  margin: 0 0 40px;
   font-size: 60px;
   ${media.desktop`font-size: 50px;`};
   ${media.tablet`font-size: 40px;`};
 `
 const StyledEmailLink = styled.a`
-  ${mixins.bigButton};
-  margin-top: 50px;
-  font-size: ${fontSizes.md} !important;
+  display: inline-block;
+  padding: 12px 24px;
+  margin-top: 0;
+  font-family: ${fonts.SFMono};
+  font-size: ${fontSizes.sm};
+  color: var(--accent-2);
+  background-color: transparent;
+  border: 1px solid var(--accent-2);
+  border-radius: ${theme.borderRadius};
+  text-decoration: none;
+  transition: ${theme.transition};
+  cursor: pointer;
+  
+  &:hover {
+    background-color: rgba(33, 184, 83, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(33, 184, 83, 0.3);
+  }
 `
 
 const Contact = ({ data }) => {
@@ -77,8 +98,6 @@ const Contact = ({ data }) => {
 
   return (
     <StyledContainer id="contact" ref={revealContainer}>
-      <StyledHeading>well, what now?</StyledHeading>
-
       <StyledTitle>
         {title}
       </StyledTitle>
