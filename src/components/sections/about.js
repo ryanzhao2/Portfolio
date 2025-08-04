@@ -304,103 +304,16 @@ const About = ({ data, technologiesData }) => {
         <StyledPic>
           <StyledAvatarLink href="https://github.com/ryanzhao2" target="_blank" rel="noopener noreferrer">
             <StyledAvatar>
-              <svg
-                width="380"
-                height="380"
-                viewBox="0 0 100 100"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                {/* Background gradient */}
-                <defs>
-                  <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#0a192f" stopOpacity="0.8"/>
-                    <stop offset="100%" stopColor="#112240" stopOpacity="0.9"/>
-                  </linearGradient>
-                  <linearGradient id="treeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#64ffda" stopOpacity="0.8"/>
-                    <stop offset="100%" stopColor="#64ffda" stopOpacity="0.4"/>
-                  </linearGradient>
-                  <linearGradient id="leafGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#64ffda" stopOpacity="0.6"/>
-                    <stop offset="100%" stopColor="#64ffda" stopOpacity="0.2"/>
-                  </linearGradient>
-                </defs>
-                
-                {/* Main background */}
-                <rect width="100" height="100" fill="url(#bgGradient)" rx="8"/>
-                
-                {/* Glowing border */}
-                <rect x="2" y="2" width="96" height="96" fill="none" stroke="url(#treeGradient)" strokeWidth="1" rx="6"/>
-                
-                {/* Tree trunk */}
-                <path d="M50 85 L50 60" stroke="#64ffda" strokeWidth="2" strokeLinecap="round" opacity="0.8"/>
-                <path d="M50 85 L45 90" stroke="#64ffda" strokeWidth="1.5" strokeLinecap="round" opacity="0.6"/>
-                <path d="M50 85 L55 90" stroke="#64ffda" strokeWidth="1.5" strokeLinecap="round" opacity="0.6"/>
-                
-                {/* Main branches */}
-                <path d="M50 60 L35 45" stroke="#64ffda" strokeWidth="1.5" strokeLinecap="round" opacity="0.7"/>
-                <path d="M50 60 L65 45" stroke="#64ffda" strokeWidth="1.5" strokeLinecap="round" opacity="0.7"/>
-                <path d="M50 60 L30 55" stroke="#64ffda" strokeWidth="1" strokeLinecap="round" opacity="0.6"/>
-                <path d="M50 60 L70 55" stroke="#64ffda" strokeWidth="1" strokeLinecap="round" opacity="0.6"/>
-                
-                {/* Secondary branches */}
-                <path d="M35 45 L25 35" stroke="#64ffda" strokeWidth="1" strokeLinecap="round" opacity="0.5"/>
-                <path d="M35 45 L40 30" stroke="#64ffda" strokeWidth="1" strokeLinecap="round" opacity="0.5"/>
-                <path d="M65 45 L75 35" stroke="#64ffda" strokeWidth="1" strokeLinecap="round" opacity="0.5"/>
-                <path d="M65 45 L60 30" stroke="#64ffda" strokeWidth="1" strokeLinecap="round" opacity="0.5"/>
-                
-                {/* Tree foliage - circular clusters */}
-                <circle cx="50" cy="35" r="8" fill="url(#leafGradient)" opacity="0.4">
-                  <animate attributeName="r" values="8;9;8" dur="3s" repeatCount="indefinite"/>
-                </circle>
-                <circle cx="35" cy="30" r="6" fill="url(#leafGradient)" opacity="0.3">
-                  <animate attributeName="r" values="6;7;6" dur="4s" repeatCount="indefinite"/>
-                </circle>
-                <circle cx="65" cy="30" r="6" fill="url(#leafGradient)" opacity="0.3">
-                  <animate attributeName="r" values="6;7;6" dur="4s" repeatCount="indefinite"/>
-                </circle>
-                <circle cx="25" cy="25" r="4" fill="url(#leafGradient)" opacity="0.2">
-                  <animate attributeName="r" values="4;5;4" dur="5s" repeatCount="indefinite"/>
-                </circle>
-                <circle cx="75" cy="25" r="4" fill="url(#leafGradient)" opacity="0.2">
-                  <animate attributeName="r" values="4;5;4" dur="5s" repeatCount="indefinite"/>
-                </circle>
-                
-                {/* Floating leaves/particles */}
-                <circle cx="20" cy="20" r="1" fill="#64ffda" opacity="0.6">
-                  <animate attributeName="opacity" values="0.6;0.1;0.6" dur="3s" repeatCount="indefinite"/>
-                  <animate attributeName="cy" values="20;15;20" dur="4s" repeatCount="indefinite"/>
-                </circle>
-                <circle cx="80" cy="15" r="1.2" fill="#64ffda" opacity="0.5">
-                  <animate attributeName="opacity" values="0.5;0.1;0.5" dur="4s" repeatCount="indefinite"/>
-                  <animate attributeName="cy" values="15;10;15" dur="5s" repeatCount="indefinite"/>
-                </circle>
-                <circle cx="15" cy="40" r="0.8" fill="#64ffda" opacity="0.4">
-                  <animate attributeName="opacity" values="0.4;0.1;0.4" dur="5s" repeatCount="indefinite"/>
-                  <animate attributeName="cy" values="40;35;40" dur="3s" repeatCount="indefinite"/>
-                </circle>
-                <circle cx="85" cy="35" r="1" fill="#64ffda" opacity="0.5">
-                  <animate attributeName="opacity" values="0.5;0.1;0.5" dur="3.5s" repeatCount="indefinite"/>
-                  <animate attributeName="cy" values="35;30;35" dur="4.5s" repeatCount="indefinite"/>
-                </circle>
-                
-                {/* Ground/roots */}
-                <path d="M40 90 Q50 95 60 90" stroke="#64ffda" strokeWidth="1" fill="none" opacity="0.4"/>
-                <path d="M35 92 Q50 97 65 92" stroke="#64ffda" strokeWidth="0.8" fill="none" opacity="0.3"/>
-                
-                {/* Corner accents */}
-                <path d="M10 10 L15 10 L15 15" stroke="#64ffda" strokeWidth="1" fill="none" opacity="0.6"/>
-                <path d="M85 10 L90 10 L90 15" stroke="#64ffda" strokeWidth="1" fill="none" opacity="0.6"/>
-                <path d="M10 85 L15 85 L15 90" stroke="#64ffda" strokeWidth="1" fill="none" opacity="0.6"/>
-                <path d="M85 85 L90 85 L90 90" stroke="#64ffda" strokeWidth="1" fill="none" opacity="0.6"/>
-                
-                {/* Ambient glow around tree */}
-                <circle cx="50" cy="50" r="35" fill="none" stroke="#64ffda" strokeWidth="0.5" opacity="0.1">
-                  <animate attributeName="r" values="35;40;35" dur="6s" repeatCount="indefinite"/>
-                  <animate attributeName="opacity" values="0.1;0.2;0.1" dur="6s" repeatCount="indefinite"/>
-                </circle>
-              </svg>
+              <img 
+                src="/featured/golf.JPEG" 
+                alt="Golf" 
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  borderRadius: '3px',
+                  transition: 'all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1)'
+                }}
+              />
             </StyledAvatar>
           </StyledAvatarLink>
         </StyledPic>
