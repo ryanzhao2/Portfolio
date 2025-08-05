@@ -21,6 +21,7 @@ import {
   SiJavascript,
   SiTypescript,
   SiNextdotjs,
+  SiNodedotjs,
   SiThreedotjs,
   SiTailwindcss,
   SiTensorflow,
@@ -28,12 +29,15 @@ import {
   SiOpencv,
   SiKeras,
   SiLangchain,
-  SiPostman,
   SiJupyter,
   SiNpm,
   SiYarn,
   SiWebpack,
-  SiVisualstudiocode
+  SiVisualstudiocode,
+  SiPostgresql,
+  SiMongodb,
+  SiGooglecloud,
+  SiFlask
 } from "react-icons/si";
 
 // --- skills mapping --------------------------------------------------------------
@@ -52,26 +56,26 @@ export const skillsMapping = {
   // Frameworks/Libraries
   "React": { icon: FaReact },
   "Next.js": { icon: SiNextdotjs },
+  "Node.js": { icon: SiNodedotjs },
   "three.js": { icon: SiThreedotjs },
   "Tailwind CSS": { icon: SiTailwindcss },
   "TensorFlow": { icon: SiTensorflow },
   "Pytorch": { icon: SiPytorch },
   "OpenCV": { icon: SiOpencv },
   "Keras": { icon: SiKeras },
-  "LangChain": { icon: SiLangchain },
-  "LlamaIndex": { icon: FaCode },
+  "Flask": { icon: SiFlask },
 
   // Developer Tools
   "Git": { icon: FaGitAlt },
   "Docker": { icon: FaDocker },
   "AWS": { icon: FaAws },
+  "GCP": { icon: SiGooglecloud },
+  "PostgreSQL": { icon: SiPostgresql },
+  "MongoDB": { icon: SiMongodb },
   "VS Code": { icon: SiVisualstudiocode },
-  "Postman": { icon: SiPostman },
-  "Figma": { icon: FaFigma },
   "Jupyter": { icon: SiJupyter },
   "GitHub": { icon: FaGithub },
-  "npm/yarn": { icon: SiNpm },
-  "Webpack": { icon: SiWebpack }
+  "npm/yarn": { icon: SiNpm }
 };
 
 // Helper function to get icon for a technology

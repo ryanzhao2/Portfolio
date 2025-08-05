@@ -24,8 +24,7 @@ sections:
       - Pytorch
       - OpenCV
       - Keras
-      - LangChain
-      - LlamaIndex
+      - Flask
 
   - title: Developer Tools
     content: "Tools and platforms that help me build and deploy projects:"
@@ -33,11 +32,11 @@ sections:
       - Git
       - Docker
       - AWS
+      - GCP
+      - PostgreSQL
+      - MongoDB
       - VS Code
-      - Postman
-      - Figma
       - Jupyter
       - GitHub
       - npm/yarn
-      - Webpack
 --- 
