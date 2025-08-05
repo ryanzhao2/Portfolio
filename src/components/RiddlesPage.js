@@ -14,13 +14,15 @@ const StyledContainer = styled(Section)`
   width: 100%;
   max-width: 1200px;
   min-height: 100vh;
-  padding-top: 100px;
+  padding-top: 80px;
+  padding-bottom: 60px;
 `
 
 const StyledHeader = styled.div`
   width: 100%;
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
+  margin-top: 20px;
 `
 
 const StyledTitle = styled.h1`
@@ -52,9 +54,9 @@ const StyledSubtitle = styled.p`
 `
 
 const StyledBackButton = styled.button`
-  position: absolute;
-  top: 120px;
-  left: 25px;
+  position: fixed;
+  top: 30px;
+  left: 30px;
   background: none;
   border: none;
   color: ${colors.green};
@@ -67,6 +69,7 @@ const StyledBackButton = styled.button`
   padding: 8px 16px;
   border-radius: 4px;
   transition: ${theme.transition};
+  z-index: 1000;
   
   &:hover {
     background-color: rgba(33, 184, 83, 0.1);
@@ -87,8 +90,8 @@ const StyledBackButton = styled.button`
 const StyledRiddlesGrid = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 25px;
   
   ${media.desktop`grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));`};
   ${media.tablet`grid-template-columns: 1fr;`};
@@ -101,6 +104,7 @@ const StyledRiddleCard = styled.div`
   transition: all 0.3s ease;
   cursor: pointer;
   border: 1px solid;
+  text-align: left;
   
   html.light & {
     background-color: rgba(250, 250, 250, 0.4);
@@ -130,24 +134,17 @@ const StyledRiddleNumber = styled.div`
   font-size: 0.875rem;
   color: ${colors.green};
   margin-bottom: 0.75rem;
-  font-weight: 600;
+  font-weight: 500;
 `
 
 const StyledRiddleQuestion = styled.h3`
   margin: 0 0 1rem;
   font-size: 1.25rem;
-  color: ${colors.lightestSlate};
+  color: var(--lang-color);
   font-family: ${fonts.SFMono};
   line-height: 1.4;
   font-weight: 600;
   letter-spacing: -0.025em;
-  
-  html.light & {
-    color: #1f2937;
-  }
-  html.dark & {
-    color: ${colors.lightestSlate};
-  }
 `
 
 const StyledRiddleHint = styled.div`
@@ -163,19 +160,13 @@ const StyledRiddleHint = styled.div`
 const StyledRiddleAnswer = styled.div`
   font-family: ${fonts.SFMono};
   font-size: 0.95rem;
-  color: ${colors.slate};
-  line-height: 1.6;
+  color: var(--lang-color);
+  line-height: 1.5;
   opacity: 0;
   max-height: 0;
   overflow: hidden;
   transition: all 0.3s ease;
-  
-  html.light & {
-    color: #6b7280;
-  }
-  html.dark & {
-    color: #a1a1aa;
-  }
+  opacity: 0.8;
   
   &.show {
     opacity: 1;
@@ -208,14 +199,7 @@ const StyledToggleButton = styled.button`
   
   &:hover,
   &:focus {
-    color: ${colors.lightestSlate};
-    
-    html.light & {
-      color: #1f2937;
-    }
-    html.dark & {
-      color: ${colors.lightestSlate};
-    }
+    color: var(--lang-color);
   }
 `
 
@@ -287,8 +271,8 @@ const RiddlesPage = ({ initialContent }) => {
       </StyledBackButton>
       
       <StyledHeader>
-        <StyledTitle ref={revealTitle}>// Favorite Riddles</StyledTitle>
-        <StyledSubtitle ref={revealSubtitle}>// A collection of brain teasers and logic puzzles</StyledSubtitle>
+        <StyledTitle ref={revealTitle}>Favorite Riddles</StyledTitle>
+        <StyledSubtitle ref={revealSubtitle}>A collection of brain teasers and logic puzzles</StyledSubtitle>
       </StyledHeader>
       
       <StyledRiddlesGrid>
