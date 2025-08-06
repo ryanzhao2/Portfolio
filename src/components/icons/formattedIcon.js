@@ -9,7 +9,6 @@ import {
   IconGitHub,
   IconLinkedin,
   IconLocation,
-  IconLogo,
   IconStar,
   IconZap,
 } from '.'
@@ -28,8 +27,6 @@ const FormattedIcon = ({ name }) => {
       return <IconLinkedin />
     case 'Location':
       return <IconLocation />
-    case 'Logo':
-      return <IconLogo />
     case 'Star':
       return <IconStar />
     case 'Zap':
