@@ -6,9 +6,10 @@ github: https://github.com/ryanzhao2/netly
 tech:
   - Python
   - OpenCV
-  - TensorFlow
-  - Computer Vision
-  - Machine Learning
+  - YOLO
+  - TypeScript
+  - MongoDB
+  - Jupyter Notebook
 showInProjects: true
 ---
 

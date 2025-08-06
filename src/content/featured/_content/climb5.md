@@ -4,11 +4,12 @@ date: 2024
 cover: /featured/climb5.jpg
 github: https://github.com/ryanzhao2/climb-5
 tech:
+  - Python
+  - TypeScript
   - React
+  - Flask
   - Three.js
-  - WebGL
-  - 3D Graphics
-  - JavaScript
+  - HTML
 showInProjects: true
 ---
 

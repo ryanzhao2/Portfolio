@@ -5,10 +5,9 @@ cover: /featured/trendtracker.png
 github: https://github.com/ryanzhao2/trendtracker
 tech:
   - Python
-  - LSTM
-  - TensorFlow
-  - Data Visualization
-  - Financial APIs
+  - PostgreSQL
+  - FastAPI
+  - Flask
 showInProjects: true
 ---
 

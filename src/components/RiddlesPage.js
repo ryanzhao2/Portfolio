@@ -90,11 +90,13 @@ const StyledBackButton = styled.button`
 const StyledRiddlesGrid = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
   
-  ${media.desktop`grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));`};
-  ${media.tablet`grid-template-columns: 1fr;`};
+  ${media.desktop`grid-template-columns: repeat(2, 1fr);`};
+  ${media.tablet`grid-template-columns: 1fr; max-width: 700px;`};
 `
 
 const StyledRiddleCard = styled.div`
@@ -147,6 +149,65 @@ const StyledRiddleQuestion = styled.h3`
   letter-spacing: -0.025em;
 `
 
+const StyledHintButton = styled.button`
+  background: none;
+  border: none;
+  color: ${colors.green};
+  font-family: ${fonts.SFMono};
+  font-size: 0.875rem;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  
+  &:hover,
+  &:focus {
+    color: var(--lang-color);
+  }
+  
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: ${colors.green};
+    transition: width 0.3s ease;
+  }
+  
+  &:hover:after {
+    width: 100%;
+  }
+  
+  svg {
+    width: 16px;
+    height: 16px;
+    transition: ${theme.transition};
+  }
+  
+  &:hover svg {
+    opacity: 0.8;
+  }
+`
+
+const StyledButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 1rem 0 0.5rem 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  
+  html.light & {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
+`
+
 const StyledRiddleHint = styled.div`
   font-family: ${fonts.SFMono};
   font-size: 0.875rem;
@@ -155,6 +216,16 @@ const StyledRiddleHint = styled.div`
   margin: 0.5rem 0 1rem;
   font-style: italic;
   opacity: 0.8;
+  animation: fadeIn 0.3s ease;
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0.8;
+    }
+  }
 `
 
 const StyledRiddleAnswer = styled.div`
@@ -173,7 +244,6 @@ const StyledRiddleAnswer = styled.div`
     max-height: 800px;
     margin-top: 1rem;
     padding-top: 1rem;
-    border-top: 1px solid ${colors.green};
   }
   
   pre {
@@ -193,19 +263,35 @@ const StyledToggleButton = styled.button`
   font-size: 0.875rem;
   cursor: pointer;
   padding: 0.5rem 0;
-  margin-top: 0.75rem;
   transition: all 0.3s ease;
   font-weight: 500;
+  position: relative;
   
   &:hover,
   &:focus {
     color: var(--lang-color);
+  }
+  
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: ${colors.green};
+    transition: width 0.3s ease;
+  }
+  
+  &:hover:after {
+    width: 100%;
   }
 `
 
 const RiddlesPage = ({ initialContent }) => {
   const [isMounted, setIsMounted] = useState(false)
   const [expandedRiddles, setExpandedRiddles] = useState({})
+  const [showHints, setShowHints] = useState({})
   const router = useRouter()
   const revealTitle = useRef(null)
   const revealSubtitle = useRef(null)
@@ -257,6 +343,14 @@ const RiddlesPage = ({ initialContent }) => {
     }))
   }
 
+  const toggleHint = (index, e) => {
+    e.stopPropagation()
+    setShowHints(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }))
+  }
+
   const handleBackClick = () => {
     router.push('/')
   }
@@ -271,7 +365,7 @@ const RiddlesPage = ({ initialContent }) => {
       </StyledBackButton>
       
       <StyledHeader>
-        <StyledTitle ref={revealTitle}>Favorite Riddles</StyledTitle>
+        <StyledTitle ref={revealTitle}>Brain Teasers</StyledTitle>
         <StyledSubtitle ref={revealSubtitle}>A collection of brain teasers and logic puzzles</StyledSubtitle>
       </StyledHeader>
       
@@ -294,7 +388,7 @@ const RiddlesPage = ({ initialContent }) => {
               }}>
               <StyledRiddleNumber>Riddle {i + 1}</StyledRiddleNumber>
               <StyledRiddleQuestion>{question}</StyledRiddleQuestion>
-              {hint && <StyledRiddleHint>💡 {hint}</StyledRiddleHint>}
+              {hint && showHints[i] && <StyledRiddleHint>💡 {hint}</StyledRiddleHint>}
               <StyledRiddleAnswer className={expandedRiddles[i] ? 'show' : ''}>
                 {answer.includes('\n') ? (
                   <pre>{answer}</pre>
@@ -302,12 +396,22 @@ const RiddlesPage = ({ initialContent }) => {
                   answer
                 )}
               </StyledRiddleAnswer>
-              <StyledToggleButton onClick={(e) => {
-                e.stopPropagation()
-                toggleRiddle(i)
-              }}>
-                {expandedRiddles[i] ? 'Hide Answer' : 'Show Answer'}
-              </StyledToggleButton>
+              <StyledButtonContainer>
+                {hint && (
+                  <StyledHintButton onClick={(e) => toggleHint(i, e)}>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                    </svg>
+                    {showHints[i] ? 'Hide Hint' : 'Show Hint'}
+                  </StyledHintButton>
+                )}
+                <StyledToggleButton onClick={(e) => {
+                  e.stopPropagation()
+                  toggleRiddle(i)
+                }}>
+                  {expandedRiddles[i] ? 'Hide Answer' : 'Show Answer'}
+                </StyledToggleButton>
+              </StyledButtonContainer>
             </StyledRiddleCard>
           ))
         ) : (

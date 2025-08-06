@@ -4,11 +4,9 @@ date: 2024
 cover: /featured/streamlytics.png
 github: https://github.com/ryanzhao2/streamlytics
 tech:
+  - Python
   - React
-  - Node.js
-  - Database Design
-  - API Development
-  - Data Filtering
+  - Flask
 showInProjects: true
 ---
 

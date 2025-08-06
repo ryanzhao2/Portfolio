@@ -144,7 +144,7 @@ const Blog = ({ data }) => {
   }
 
   const blogText = `Blog`
-  const descriptionText = `some of my favorite riddles`
+  const descriptionText = `Thoughts, insights, and interesting finds`
 
   return (
     <StyledContainer id="blog">
@@ -162,9 +162,9 @@ const Blog = ({ data }) => {
                 handleCardClick()
               }
             }}>
-            <StyledCardTitle>Riddles</StyledCardTitle>
+            <StyledCardTitle>Brain Teasers</StyledCardTitle>
             <StyledCardDescription>
-              A collection of brain teasers and logic puzzles.
+              A collection of my favorite brain teasers and logic puzzles.
             </StyledCardDescription>
             <StyledViewButton>
               View Collection →

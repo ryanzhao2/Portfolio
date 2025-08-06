@@ -4,11 +4,13 @@ date: 2024
 cover: /featured/rhinoai.png
 github: https://github.com/ryanzhao2/rhinoai
 tech:
-  - Python
-  - AI/ML
-  - Natural Language Processing
-  - Recommendation Systems
-  - Web Scraping
+  - JavaScript
+  - CSS
+  - MongoDB
+  - Express
+  - React
+  - Node.js
+  - AWS
 showInProjects: true
 ---
 
