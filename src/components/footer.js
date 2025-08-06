@@ -102,7 +102,7 @@ const Footer = () => {
           target="_blank"
           rel="nofollow noopener noreferrer">
           <div>
-            Built with ❤️ by Ryan Zhao<br />
+          Ryan Zhao ⛳<br />
           </div>
 
           {githubInfo.stars && githubInfo.forks && (

@@ -56,21 +56,22 @@ const StyledTitle = styled.h4`
 `
 const StyledEmailLink = styled.a`
   display: inline-block;
-  padding: 12px 24px;
+  padding: 10px 20px;
   margin-top: 0;
   font-family: ${fonts.SFMono};
   font-size: ${fontSizes.sm};
   color: var(--accent-2);
   background-color: transparent;
   border: 1px solid var(--accent-2);
-  border-radius: ${theme.borderRadius};
+  border-radius: 4px;
   text-decoration: none;
   transition: ${theme.transition};
   cursor: pointer;
   
   &:hover {
     background-color: rgba(33, 184, 83, 0.1);
-    transform: translateY(-2px);
+    border-color: var(--accent-2);
+    text-decoration: none;
   }
   
   &:focus {

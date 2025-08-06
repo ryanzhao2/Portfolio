@@ -25,8 +25,24 @@ const StyledButton = styled.button`
 
   &:hover:not(.spinning),
   &:focus:not(.spinning) {
-    color: ${colors.green};
+    color: var(--accent-2);
     outline: none;
+  }
+
+  /* Override navbar active state - only green during hover and animation */
+  &:active,
+  &:focus,
+  &:visited {
+    color: var(--light-slate) !important;
+  }
+
+  /* Only green during hover and spinning animation */
+  &:hover:not(.spinning) {
+    color: var(--accent-2) !important;
+  }
+
+  &.spinning {
+    color: var(--accent-2) !important;
   }
 
   svg {
@@ -69,7 +85,7 @@ const StyledButton = styled.button`
     }
   }
 
-  &:hover {
+  &:hover:not(.spinning) {
     animation: float 2s ease-in-out infinite;
   }
 `

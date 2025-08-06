@@ -79,19 +79,21 @@ const StyledLogo = styled.div`
   position: relative !important;
   a {
     display: block;
-    color: ${colors.green};
-    width: 35px;
-    height: 35px;
+    color: inherit;
+    width: 44px;
+    height: 44px;
     &:hover,
     &:focus {
       svg {
-        fill: ${colors.transGreen};
+        fill: none;
+        color: inherit;
       }
     }
     svg {
       fill: none;
       transition: ${theme.transition};
       user-select: none;
+      color: inherit;
     }
   }
 `
@@ -140,36 +142,39 @@ const StyledListLink = styled.a`
   }
 `
 
-const StyledLogoSvg = styled.svg`
-  #logo-circle {
-    html.light & {
-      fill: #1a1a1a;
-    }
-    html.dark & {
-      fill: white;
-    }
-  }
-  
-  #logo-text {
-    html.light & {
-      fill: white;
-    }
-    html.dark & {
-      fill: #1a1a1a;
-    }
-  }
-`
-
 const IconLogo = () => (
-  <StyledLogoSvg id="logo" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 32 32" width="24" height="24">
+  <svg id="logo" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 36 36" width="36" height="36">
     <title>Ryan Zhao</title>
-    {/* Circle background */}
-    <circle id="logo-circle" cx="16" cy="16" r="15" fill="white"/>
-    {/* R, fully opaque and slightly larger */}
-    <text id="logo-text" x="13" y="22" fontFamily="'Pacifico', cursive" fontSize="17" fontWeight="normal" textAnchor="middle" fill="#1a1a1a" opacity="1">R</text>
-    {/* Z, fully opaque, slightly smaller, and adjusted position */}
-    <text id="logo-text" x="19.5" y="22" fontFamily="'Pacifico', cursive" fontSize="16.8" fontWeight="normal" textAnchor="middle" fill="#1a1a1a" opacity="1">Z</text>
-  </StyledLogoSvg>
+    
+    {/* Simple darker grey square background */}
+    <rect 
+      x="0" 
+      y="0" 
+      width="36" 
+      height="36" 
+      fill="#141414"
+    />
+    
+    {/* R - clean geometric style */}
+    <path 
+      d="M7 11h9c2.5 0 3.5 1 3.5 3s-1 3-3.5 3h-4.5l6 7" 
+      fill="none" 
+      stroke="#ffffff" 
+      strokeWidth="2.5" 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+    />
+    
+    {/* Z - clean geometric style */}
+    <path 
+      d="M21 11h7l-7 7h7l-7 7" 
+      fill="none" 
+      stroke="#ffffff" 
+      strokeWidth="2.5" 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+    />
+  </svg>
 )
 
 const StyledHamburger = styled.button`
