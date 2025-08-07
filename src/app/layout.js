@@ -1,6 +1,7 @@
 import StyledComponentsRegistry from '../lib/registry'
 import { ThemeProvider } from 'next-themes'
 import React from 'react';
+import { Analytics } from '@vercel/analytics/react'
 
 export const metadata = {
   title: 'Ryan Zhao',
@@ -64,6 +65,7 @@ export default function RootLayout({ children }) {
       <body>
         <ThemeProvider attribute="class" enableSystem={true}>
             {children}
+            <Analytics />
         </ThemeProvider>
       </body>
     </html>
