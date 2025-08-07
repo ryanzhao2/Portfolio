@@ -12,7 +12,7 @@ import InlineLink from './InlineLink'
 import Footer from './Footer'
 import Header from './Header'
 import Dot from './Dot'
-import FractalTreeContainer from './FractalTree'
+
 
 export {
   GlobalStyle,
@@ -27,5 +27,4 @@ export {
   Footer,
   Header,
   Dot,
-  FractalTreeContainer,
 } 

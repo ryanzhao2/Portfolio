@@ -143,38 +143,13 @@ const StyledListLink = styled.a`
 `
 
 const IconLogo = () => (
-  <svg id="logo" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 36 36" width="36" height="36">
-    <title>Ryan Zhao</title>
-    
-    {/* Simple darker grey square background */}
-    <rect 
-      x="0" 
-      y="0" 
-      width="36" 
-      height="36" 
-      fill="#141414"
-    />
-    
-    {/* R - clean geometric style */}
-    <path 
-      d="M7 11h9c2.5 0 3.5 1 3.5 3s-1 3-3.5 3h-4.5l6 7" 
-      fill="none" 
-      stroke="#ffffff" 
-      strokeWidth="2.5" 
-      strokeLinecap="round" 
-      strokeLinejoin="round"
-    />
-    
-    {/* Z - clean geometric style */}
-    <path 
-      d="M21 11h7l-7 7h7l-7 7" 
-      fill="none" 
-      stroke="#ffffff" 
-      strokeWidth="2.5" 
-      strokeLinecap="round" 
-      strokeLinejoin="round"
-    />
-  </svg>
+  <img 
+    src="/logo.png" 
+    alt="Ryan Zhao" 
+    width="42" 
+    height="42" 
+    style={{ borderRadius: '4px' }}
+  />
 )
 
 const StyledHamburger = styled.button`

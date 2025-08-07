@@ -7,9 +7,12 @@ export const metadata = {
   description: 'Welcome to my personal website!',
   metadataBase: new URL('https://ryanzhao.com'),
   icons: {
-    icon: '/favicon.svg',
-    shortcut: '/favicon.svg',
-    apple: '/favicon.svg',
+    icon: [
+      { url: '/logo.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon.ico', sizes: 'any', type: 'image/x-icon' }
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/logo.png',
   },
   keywords: ['Ryan Zhao', 'Software Engineer', 'Web Developer', 'Portfolio', 'Full Stack Developer', 'Software Development', 'Ryan Zhao Portfolio', 'Ryan Zhao Website', 'Ryan Zhao Personal Website', 'University of Toronto'],
   robots: {
@@ -32,9 +35,9 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: '/favicon.svg',
-        width: 32,
-        height: 32,
+        url: '/logo.png',
+        width: 64,
+        height: 64,
         alt: 'Ryan Zhao Portfolio'
       }
     ],
@@ -43,7 +46,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Ryan Zhao',
     description: 'Welcome to my personal website!',
-    images: ['/favicon.svg'],
+    images: ['/logo.png'],
   },
   alternates: {
     canonical: 'https://ryanzhao.com'
