@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import ScrollReveal from 'scrollreveal'
 
 const defaultConfig = {
   duration: 500,
@@ -15,9 +14,22 @@ const useScrollReveal = () => {
   const [sr, setSr] = useState(null)
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const scrollReveal = ScrollReveal(defaultConfig)
-      setSr(scrollReveal)
+    let cancelled = false
+
+    const init = async () => {
+      if (typeof window === 'undefined') return
+      try {
+        const { default: ScrollReveal } = await import('scrollreveal')
+        const scrollReveal = ScrollReveal(defaultConfig)
+        if (!cancelled) setSr(scrollReveal)
+      } catch (error) {
+        console.error('Failed to load scrollreveal:', error)
+      }
+    }
+
+    init()
+    return () => {
+      cancelled = true
     }
   }, [])
 

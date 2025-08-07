@@ -3,6 +3,9 @@
   "description": "Ryan Zhao's Personal Portfolio",
   "version": "1.0.0",
   "author": "Ryan Zhao <ryan.zhao2@gmail.com>",
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/YOUR_USERNAME/YOUR_NEW_REPO_NAME"
@@ -12,6 +15,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "preview": "npx --yes serve -l 3000 out",
     "lint": "next lint",
     "export": "next export",
     "clean": "rm -rf .next out",
