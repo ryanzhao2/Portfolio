@@ -2,7 +2,7 @@
 title: RhinoAI
 date: 2024
 cover: /featured/rhinoai.png
-github: https://github.com/ryanzhao2/rhinoai
+github: https://github.com/ryanzhao2/rhino-ai
 tech:
   - JavaScript
   - CSS
