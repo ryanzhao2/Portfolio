@@ -1,8 +1,8 @@
 ---
-company: WorkerBee
+company: Workerbee
 title: Software Engineer
 location: Toronto, ON, Canada
-range: January 2025 - Present
+range: May 2025 - September 2025
 ---
 
 

@@ -469,6 +469,17 @@ const Jobs = ({ data }) => {
                     />
                   </StyledTabLogo>
                 )}
+                {company.toLowerCase().includes('mcgill') && (
+                  <StyledTabLogo>
+                    <Image 
+                      src="/featured/McGill.png" 
+                      alt="McGill University Logo" 
+                      width={20} 
+                      height={20}
+                      style={{ objectFit: 'contain' }}
+                    />
+                  </StyledTabLogo>
+                )}
                 <span>{company}</span>
               </StyledTabButton>
             </li>
