@@ -78,7 +78,7 @@ const StyledSubtitle = styled.h3`
   font-size: 60px;
   line-height: 1.1;
   margin: 0;
-  animation: ${fadeInUp} 1.2s ease-out 0.6s both;
+  opacity: 1;
   ${media.desktop`font-size: 50px;`};
   ${media.tablet`font-size: 45px;`};
   ${media.phablet`font-size: 40px;`};
@@ -153,7 +153,9 @@ const Hero = ({ data }) => {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentStatus, setCurrentStatus] = useState(0);
+  const [isTypingComplete, setIsTypingComplete] = useState(false);
   const containerRef = useRef(null);
+  const typewriterRef = useRef(null);
   const sr = useScrollReveal();
 
   const { title, name, subtitle } = data;
@@ -172,13 +174,20 @@ const Hero = ({ data }) => {
 
   useEffect(() => {
     if (sr && containerRef.current) {
-      sr.reveal(containerRef.current.children, {
-        duration: 1000,
-        distance: '20px',
-        easing: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
-        origin: 'bottom',
-        interval: 100
-      });
+      // Only reveal non-typewriter elements to prevent interference
+      const elementsToReveal = Array.from(containerRef.current.children).filter(
+        (child, index) => index !== 2 // Skip the typewriter element (index 2)
+      );
+      
+      if (elementsToReveal.length > 0) {
+        sr.reveal(elementsToReveal, {
+          duration: 1000,
+          distance: '20px',
+          easing: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
+          origin: 'bottom',
+          interval: 100
+        });
+      }
     }
   }, [sr, isMounted]);
 
@@ -188,10 +197,31 @@ const Hero = ({ data }) => {
       const timeout = setTimeout(() => {
         setDisplayText(subtitle.slice(0, currentIndex + 1));
         setCurrentIndex(currentIndex + 1);
-      }, currentIndex === 0 ? 2000 : 150); // 3.5 second delay for first character, then normal speed
+      }, currentIndex === 0 ? 2000 : 150); // 2 second delay for first character, then normal speed
       return () => clearTimeout(timeout);
+    } else if (isMounted && currentIndex >= subtitle.length && !isTypingComplete) {
+      setIsTypingComplete(true);
     }
-  }, [currentIndex, subtitle, isMounted]);
+  }, [currentIndex, subtitle, isMounted, isTypingComplete]);
+
+  // Handle page visibility changes to prevent animation issues
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        // Page is hidden, pause any ongoing animations
+        return;
+      } else {
+        // Page is visible again, ensure typewriter is in correct state
+        if (isMounted && !isTypingComplete && currentIndex < subtitle.length) {
+          // Resume typing if it was interrupted
+          return;
+        }
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+  }, [isMounted, isTypingComplete, currentIndex, subtitle.length]);
 
   // Rotate status messages
   useEffect(() => {
@@ -214,7 +244,7 @@ const Hero = ({ data }) => {
     },
     {
       node: (
-        <StyledSubtitle>
+        <StyledSubtitle ref={typewriterRef}>
           {displayText}
           {currentIndex < subtitle.length && <Cursor />}
         </StyledSubtitle>
