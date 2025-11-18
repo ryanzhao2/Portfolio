@@ -1,6 +1,6 @@
 ---
 company: Workerbee
-title: Software Engineer
+title: Software Engineer Intern
 location: Toronto, ON, Canada
 range: May 2025 - September 2025
 ---

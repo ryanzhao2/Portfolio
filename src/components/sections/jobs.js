@@ -480,6 +480,17 @@ const Jobs = ({ data }) => {
                     />
                   </StyledTabLogo>
                 )}
+                {company.toLowerCase().includes('loblaw') && (
+                  <StyledTabLogo>
+                    <Image 
+                      src="/featured/loblawdigital.png" 
+                      alt="Loblaw Digital Logo" 
+                      width={20} 
+                      height={20}
+                      style={{ objectFit: 'contain' }}
+                    />
+                  </StyledTabLogo>
+                )}
                 <span>{company}</span>
               </StyledTabButton>
             </li>
