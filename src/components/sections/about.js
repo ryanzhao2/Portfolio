@@ -14,7 +14,7 @@ const StyledContainer = styled(Section)`
 const StyledFlexContainer = styled.div`
   ${mixins.flexBetween};
   align-items: flex-start;
-  margin-bottom: 15%;
+  margin-bottom: 5%;
   ${media.tablet`display: block;`};
 `
 const StyledContent = styled.div`
@@ -318,7 +318,7 @@ const About = ({ data, technologiesData }) => {
           </StyledAvatarLink>
         </StyledPic>
       </StyledFlexContainer>
-      <Heading>
+      {/* <Heading>
         Tech Stack
       </Heading>
       <TechnologyContainer>
@@ -351,7 +351,7 @@ const About = ({ data, technologiesData }) => {
             </ul>
           </TechnologyItem>
         ))}
-      </TechnologyContainer>
+      </TechnologyContainer> */}
     </StyledContainer>
   )
 }
