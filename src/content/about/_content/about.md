@@ -7,7 +7,7 @@ Hello, I'm a student at [McGill University](https://www.mcgill.ca/) majoring in 
 
 ## A bit about me:
 
-- Currently doing ML Research at McGill
+- Incoming SWE intern at Loblaw Digital 
+- Worked on ML research at McGill DISCS Lab in the fall
 - Previously worked at WorkerBee as a Software Engineer
-- Passionate about AI/ML technologies including natural language processing, AI agents, deep learning, and computer vision 
 - Love playing golf in my free time
