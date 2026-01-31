@@ -7,6 +7,7 @@ roles:
     content:
       - "Researched Agentic AI approaches for adaptive tuning of vector databases to improve semantic retrieval, increase adaptability across diverse datasets, and optimize performance for downstream applications"
       - "Optimized HNSW hyperparameters using agents, achieving 90% recall@k across dozens of experimental configurations"
+      - "Engineered an evaluation framework to benchmark HNSW performance across 200+ automated experimental trials"
 ---
 
 
