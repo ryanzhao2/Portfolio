@@ -14,6 +14,21 @@ const GlobalStyle = createGlobalStyle`
   ${FontFaces};
 
   :root {
+    --lang-color: #ffffff;
+    --lang-background: #18181b;
+    --text-shadow: #18181b;
+    --selection-shade: #333333;
+    --accent-1: #4ab7ff;
+    --accent-2: #21b853;
+    --accent-3: #06fafa;
+    --accent-4: #f5a207;
+    --hue-1: transparent;
+    --hue-2: #ffffff;
+    --hue-3: #c26af5;
+    --light-slate: #B2BBD3;
+    --lightest-slate: #E7F0F7;
+  }
+  html.light {
     --lang-color: #18181b;
     --lang-background: white;
     --text-shadow: white;
@@ -30,7 +45,7 @@ const GlobalStyle = createGlobalStyle`
   }
   html.dark {
     --lang-color: #ffffff;
-    --lang-background: #18181ba4;
+    --lang-background: #18181b;
     --text-shadow: #18181b;
     --selection-shade: #333333;
     --accent-1: #4ab7ff;
@@ -46,6 +61,7 @@ const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
     width: 100%;
+    background-color: var(--lang-background);
   }
 
   *,

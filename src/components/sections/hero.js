@@ -155,7 +155,6 @@ const Hero = ({ data }) => {
   const [currentStatus, setCurrentStatus] = useState(0);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
   const containerRef = useRef(null);
-  const typewriterRef = useRef(null);
   const sr = useScrollReveal();
 
   const { title, name, subtitle } = data;
@@ -244,7 +243,7 @@ const Hero = ({ data }) => {
     },
     {
       node: (
-        <StyledSubtitle ref={typewriterRef}>
+        <StyledSubtitle>
           {displayText}
           {currentIndex < subtitle.length && <Cursor />}
         </StyledSubtitle>
