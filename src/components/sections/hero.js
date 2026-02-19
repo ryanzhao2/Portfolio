@@ -1,9 +1,8 @@
 "use client"
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
 import { theme, mixins, media, Section } from "@/styles"
-import useScrollReveal from '../../utils/sr';
 const { colors, fontSizes, fonts, navDelay } = theme;
 
 // Animations - made more subtle
@@ -154,8 +153,6 @@ const Hero = ({ data }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentStatus, setCurrentStatus] = useState(0);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
-  const containerRef = useRef(null);
-  const sr = useScrollReveal();
 
   const { title, name, subtitle } = data;
 
@@ -170,25 +167,6 @@ const Hero = ({ data }) => {
     const timeout = setTimeout(() => setIsMounted(true), navDelay);
     return () => clearTimeout(timeout);
   }, []);
-
-  useEffect(() => {
-    if (sr && containerRef.current) {
-      // Only reveal non-typewriter elements to prevent interference
-      const elementsToReveal = Array.from(containerRef.current.children).filter(
-        (child, index) => index !== 2 // Skip the typewriter element (index 2)
-      );
-      
-      if (elementsToReveal.length > 0) {
-        sr.reveal(elementsToReveal, {
-          duration: 1000,
-          distance: '20px',
-          easing: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
-          origin: 'bottom',
-          interval: 100
-        });
-      }
-    }
-  }, [sr, isMounted]);
 
   // Typewriter effect for subtitle - starts with a delay
   useEffect(() => {
@@ -253,7 +231,7 @@ const Hero = ({ data }) => {
   ];
 
   return (
-    <StyledContainer ref={containerRef}>
+    <StyledContainer>
       <div>
         {items.map(({ node }, i) => (
           <div key={i}>
