@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import styled from 'styled-components'
 import { theme, mixins, media } from '../styles'
-import StyledComponentsRegistry from '../lib/registry'
 const { colors, fontSizes, fonts } = theme
 
 const StyledContainer = styled.div`
@@ -109,9 +108,5 @@ function NotFoundContent() {
 }
 
 export default function NotFound() {
-  return (
-    <StyledComponentsRegistry>
-      <NotFoundContent />
-    </StyledComponentsRegistry>
-  )
+  return <NotFoundContent />
 } 

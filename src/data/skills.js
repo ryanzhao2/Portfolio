@@ -15,6 +15,8 @@ import {
   FaDatabase
 } from "react-icons/fa";
 
+import { VscVscode } from "react-icons/vsc";
+
 import {
   SiC,
   SiCplusplus,
@@ -33,7 +35,6 @@ import {
   SiNpm,
   SiYarn,
   SiWebpack,
-  SiVisualstudiocode,
   SiPostgresql,
   SiMongodb,
   SiGooglecloud,
@@ -72,7 +73,7 @@ export const skillsMapping = {
   "GCP": { icon: SiGooglecloud },
   "PostgreSQL": { icon: SiPostgresql },
   "MongoDB": { icon: SiMongodb },
-  "VS Code": { icon: SiVisualstudiocode },
+  "VS Code": { icon: VscVscode },
   "Jupyter": { icon: SiJupyter },
   "GitHub": { icon: FaGithub },
   "npm/yarn": { icon: SiNpm }

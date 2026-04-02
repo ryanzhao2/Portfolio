@@ -69,7 +69,9 @@ export default function RootLayout({ children }) {
           enableSystem={false}
           disableTransitionOnChange
         >
-            {children}
+            <StyledComponentsRegistry>
+              {children}
+            </StyledComponentsRegistry>
             <Analytics />
         </ThemeProvider>
       </body>
