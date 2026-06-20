@@ -1,6 +1,5 @@
 ---
 title: RhinoAI
-date: 2024
 cover: /featured/rhinoai.png
 github: https://github.com/ryanzhao2/rhino-ai
 tech:

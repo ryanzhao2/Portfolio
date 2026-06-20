@@ -38,13 +38,20 @@ export const getContentData = (section) => {
 
       return {
         ...projectData,
+        _order: data.featured.indexOf(projectId),
         content: processedContent
       }
     })
 
     return {
       title: data.title,
-      featured: featured.sort((a, b) => new Date(b.date) - new Date(a.date))
+      featured: featured.sort((a, b) => {
+        if (a.date && b.date) {
+          return new Date(b.date) - new Date(a.date)
+        }
+
+        return a._order - b._order
+      }).map(({ _order, ...project }) => project)
     }
   }
 
@@ -78,9 +85,11 @@ export const getContentData = (section) => {
 
       return {
         title: projectData.title,
+        cover: projectData.cover,
         github: projectData.github,
         external: projectData.external,
         tech: projectData.tech,
+        imageCredit: projectData.imageCredit,
         content: processedContent[0] || ''
       }
     })

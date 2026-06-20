@@ -1,6 +1,5 @@
 ---
 title: Climb 5
-date: 2024
 cover: /featured/climb5.jpg
 github: https://github.com/ryanzhao2/climb-5
 tech:

@@ -1,6 +1,5 @@
 ---
 title: Netly
-date: 2024
 cover: /featured/netly.png
 github: https://github.com/ryanzhao2/netly
 tech:

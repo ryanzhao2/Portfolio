@@ -1,6 +1,5 @@
 ---
 title: TrendTracker
-date: 2024
 cover: /featured/trendtracker.png
 github: https://github.com/ryanzhao2/trendtracker
 tech:

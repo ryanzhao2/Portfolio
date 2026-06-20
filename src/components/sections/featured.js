@@ -156,6 +156,14 @@ const StyledImageContainer = styled.div`
   }
 `
 
+const StyledImageCredit = styled.p`
+  margin: 6px 2px 0;
+  font-family: ${fonts.SFMono};
+  font-size: 10px;
+  line-height: 1.4;
+  color: var(--lang-color);
+`
+
 const Featured = ({ data }) => {
   const [videoModalOpen, setVideoModalOpen] = useState(false);
   const [currentVideo, setCurrentVideo] = useState(null);
@@ -277,7 +285,7 @@ const Featured = ({ data }) => {
       </Heading>
       {data?.featured && data.featured.length > 0 && (
         <StyledGrid>
-          {data.featured.map(({ title, cover, tech, github, external, content }, i) => (
+          {data.featured.map(({ title, cover, imageCredit, tech, github, external, content }, i) => (
             <StyledProjectCard key={i}>
               <StyledProjectHeader>
                 <StyledProjectName>{title}</StyledProjectName>
@@ -322,20 +330,23 @@ const Featured = ({ data }) => {
               </StyledTechList>
               
               {cover && (
-                <StyledImageContainer>
-                  <Image
-                    src={cover}
-                    alt={title}
-                    width={400}
-                    height={200}
-                    quality={95}
-                    style={{
-                      width: '100%',
-                      height: '200px',
-                      objectFit: 'cover',
-                    }}
-                  />
-                </StyledImageContainer>
+                <>
+                  <StyledImageContainer>
+                    <Image
+                      src={cover}
+                      alt={title}
+                      width={400}
+                      height={200}
+                      quality={95}
+                      style={{
+                        width: '100%',
+                        height: '200px',
+                        objectFit: 'cover',
+                      }}
+                    />
+                  </StyledImageContainer>
+                  {imageCredit && <StyledImageCredit>{imageCredit}</StyledImageCredit>}
+                </>
               )}
             </StyledProjectCard>
           ))}
@@ -361,6 +372,7 @@ Featured.propTypes = {
       PropTypes.shape({
         title: PropTypes.string.isRequired,
         cover: PropTypes.string.isRequired,
+        imageCredit: PropTypes.string,
         github: PropTypes.string,
         external: PropTypes.string,
         tech: PropTypes.arrayOf(PropTypes.string).isRequired,

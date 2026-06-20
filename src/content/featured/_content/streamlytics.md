@@ -1,6 +1,5 @@
 ---
 title: StreamLytics
-date: 2024
 cover: /featured/streamlytics.png
 github: https://github.com/ryanzhao2/streamlytics
 tech:
