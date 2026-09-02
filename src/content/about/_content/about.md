@@ -7,7 +7,6 @@ Hello, I'm a student at [McGill University](https://www.mcgill.ca/) majoring in 
 
 ## A bit about me:
 
-- SDE Intern at Amazon
-- Previously worked at Loblaw Digital as a SWE Intern
-- Worked on ML research at McGill DISCS Lab last fall
+- Previously worked at Amazon as an SDE Intern
+- Worked on ML research at McGill DISCS Lab in 2025
 - Love playing golf in my free time
