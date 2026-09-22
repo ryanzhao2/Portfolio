@@ -1,5 +1,5 @@
 import { getAllContent } from '../utils/markdown'
-import DynamicClientPage from '../components/DynamicClientPage'
+import ClientPage from './client-page'
 // import TestThemeButtons from '../components/TestThemeButtons'
 
 export default function Page() {
@@ -10,7 +10,7 @@ export default function Page() {
   return (
     <>
       {/* <TestThemeButtons /> */}
-      <DynamicClientPage initialContent={content} />
+      <ClientPage initialContent={content} />
     </>
   )
-} 
+}

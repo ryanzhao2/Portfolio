@@ -164,7 +164,7 @@ export const getContentData = (section) => {
           }
           
           if (currentText.trim()) {
-            parts.push({ type: 'text', content: ' ' + currentText.trim() })
+            parts.push({ type: 'text', content: currentText })
           }
           
           currentList.items.push({ content: parts })
@@ -203,7 +203,7 @@ export const getContentData = (section) => {
           }
           
           if (currentText.trim()) {
-            parts.push({ type: 'text', content: ' ' + currentText.trim() })
+            parts.push({ type: 'text', content: currentText })
           }
           
           parsedContent.push({
@@ -325,7 +325,7 @@ export const getJobsData = () => {
 }
 
 export const getAllContent = () => {
-  const sections = ['hero', 'about', 'technologies', 'featured', 'projects', 'blog', 'contact']
+  const sections = ['about', 'technologies', 'featured', 'projects', 'blog', 'contact']
   const content = {}
 
   sections.forEach(section => {
@@ -339,4 +339,4 @@ export const getAllContent = () => {
   content.jobs = getJobsData()
 
   return content
-} 
+}

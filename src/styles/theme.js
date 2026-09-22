@@ -46,8 +46,8 @@ const theme = {
   transition: 'all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1)',
 
   borderRadius: '3px',
-  navHeight: '100px',
-  navScrollHeight: '70px',
+  navHeight: '72px',
+  navScrollHeight: '60px',
   margin: '20px',
 
   tabHeight: 42,
@@ -64,4 +64,4 @@ const theme = {
   loaderDelay: 2000,
 }
 
-export default theme 
+export default theme

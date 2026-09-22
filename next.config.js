@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  compiler: {
+    styledComponents: true,
+  },
   output: 'export',
   images: {
     unoptimized: true,
@@ -7,4 +10,4 @@ const nextConfig = {
   trailingSlash: true,
 }
 
-module.exports = nextConfig 
+module.exports = nextConfig

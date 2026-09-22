@@ -37,7 +37,7 @@ const StyledContainer = styled.header`
   left: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
-  background-color: ${colors.lightGray};
+  background-color: ${props => props.$scrolled ? 'rgba(10, 10, 10, 0.18)' : 'transparent'};
   transition: ${theme.transition};
   z-index: 11;
   filter: none !important;
@@ -49,12 +49,10 @@ const StyledContainer = styled.header`
   justify-content: center !important;
 
   html.light & {
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
+    background-color: ${props => props.$scrolled ? 'rgba(255, 255, 255, 0.18)' : 'transparent'};
   }
   html.dark & {
-    background-color: rgba(31, 31, 31, 0.8);
-    backdrop-filter: blur(10px);
+    background-color: ${props => props.$scrolled ? 'rgba(10, 10, 10, 0.18)' : 'transparent'};
   }
 `
 
@@ -80,19 +78,15 @@ const StyledLogo = styled.div`
   a {
     display: block;
     color: inherit;
-    width: 44px;
-    height: 44px;
+    font-family: ${fonts.Calibre};
+    font-size: ${fontSizes.lg};
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    white-space: nowrap;
+
     &:hover,
     &:focus {
-      svg {
-        fill: none;
-        color: inherit;
-      }
-    }
-    svg {
-      fill: none;
-      transition: ${theme.transition};
-      user-select: none;
       color: inherit;
     }
   }
@@ -118,7 +112,7 @@ const StyledListItem = styled.li`
   padding: 0 !important;
   position: relative;
   font-size: ${fontSizes.smish};
-  
+
   &:not(:last-child) {
     margin-right: 40px !important;
   }
@@ -142,15 +136,7 @@ const StyledListLink = styled.a`
   }
 `
 
-const IconLogo = () => (
-  <img 
-    src="/logo.png" 
-    alt="Ryan Zhao" 
-    width="42" 
-    height="42" 
-    style={{ borderRadius: '4px' }}
-  />
-)
+const IconLogo = () => <>Ryan Zhao</>
 
 const StyledHamburger = styled.button`
   display: none;
@@ -293,6 +279,7 @@ const StyledMobileList = styled.ol`
 const Nav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const [scrolled, setScrolled] = useState(false);
 
   // Remove focus from navigation links after clicking
   const handleNavClick = () => {
@@ -373,8 +360,16 @@ const Nav = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleHeaderScroll = () => setScrolled(window.scrollY > 12);
+
+    handleHeaderScroll();
+    window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleHeaderScroll);
+  }, []);
+
   return (
-    <StyledContainer>
+    <StyledContainer $scrolled={scrolled}>
       <StyledNav>
         <StyledLogo>
           <Link href="/" passHref legacyBehavior>

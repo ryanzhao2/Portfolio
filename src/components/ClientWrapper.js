@@ -2,12 +2,8 @@
 
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
-import { usePathname } from 'next/navigation'
-import dynamic from 'next/dynamic'
 
 const ClientWrapper = ({ children }) => {
-  const pathname = usePathname()
-  const isHome = pathname === '/'
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
@@ -71,7 +67,4 @@ ClientWrapper.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-// Use dynamic import with ssr: false for the entire component
-export default dynamic(() => Promise.resolve(ClientWrapper), {
-  ssr: false
-}); 
+export default ClientWrapper
