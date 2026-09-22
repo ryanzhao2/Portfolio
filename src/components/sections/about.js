@@ -11,9 +11,13 @@ const { fontSizes, fonts } = theme
 const StyledContainer = styled(Section)`
   position: relative;
   max-width: 700px;
-  padding-top: 160px;
+  padding-top: 200px;
+  padding-bottom: 180px;
 
-  ${media.tablet`padding-top: 130px;`};
+  ${media.tablet`
+    padding-top: 150px;
+    padding-bottom: 140px;
+  `};
 `
 
 const Introduction = styled.div`
