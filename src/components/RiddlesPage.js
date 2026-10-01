@@ -288,6 +288,8 @@ const StyledToggleButton = styled.button`
   }
 `
 
+const EMPTY_RIDDLES = []
+
 const RiddlesPage = ({ initialContent }) => {
   const [isMounted, setIsMounted] = useState(false)
   const [expandedRiddles, setExpandedRiddles] = useState({})
@@ -299,7 +301,7 @@ const RiddlesPage = ({ initialContent }) => {
   const nodeRefs = useRef([])
   const sr = useScrollReveal()
 
-  const riddles = initialContent?.blog || []
+  const riddles = initialContent?.blog || EMPTY_RIDDLES
 
   useEffect(() => {
     // Initialize nodeRefs for each riddle
@@ -424,4 +426,4 @@ const RiddlesPage = ({ initialContent }) => {
   )
 }
 
-export default RiddlesPage 
+export default RiddlesPage

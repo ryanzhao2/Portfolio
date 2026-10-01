@@ -1,7 +1,6 @@
 ---
 title: "About"
-greeting: "Hi."
-name: "I'm Ryan."
+name: "Ryan Zhao"
 ---
 
 I'm a Computer Science student at McGill University.

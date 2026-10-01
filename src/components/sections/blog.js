@@ -1,7 +1,6 @@
 'use client'
 
-import React, { useState, useEffect, useRef } from 'react'
-import PropTypes from 'prop-types'
+import React, { useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import useScrollReveal from '../../utils/sr'
 import styled from 'styled-components'
@@ -14,6 +13,9 @@ const StyledContainer = styled(Section)`
   align-items: flex-start;
   width: 100%;
   max-width: 1200px;
+  padding-top: 60px;
+
+  ${media.tablet`padding-top: 40px;`};
 `
 
 const StyledTitle = styled.h4`
@@ -102,8 +104,7 @@ const StyledViewButton = styled.div`
   }
 `
 
-const Blog = ({ data }) => {
-  const [isMounted, setIsMounted] = useState(false)
+const Blog = () => {
   const router = useRouter()
   const revealTitle = useRef(null)
   const revealSubtext = useRef(null)
@@ -111,8 +112,6 @@ const Blog = ({ data }) => {
   const sr = useScrollReveal()
 
   useEffect(() => {
-    setIsMounted(true)
-    
     if (sr && revealTitle.current) {
       sr.reveal(revealTitle.current, {
         duration: 500,
@@ -151,38 +150,25 @@ const Blog = ({ data }) => {
       <StyledTitle ref={revealTitle}>{blogText}</StyledTitle>
       <StyledSubtext ref={revealSubtext}>{descriptionText}</StyledSubtext>
       <StyledCardContainer>
-        {isMounted && (
-          <StyledRiddleCard
-            ref={revealCard}
-            tabIndex="0"
-            onClick={handleCardClick}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault()
-                handleCardClick()
-              }
-            }}>
-            <StyledCardTitle>Brain Teasers</StyledCardTitle>
-            <StyledCardDescription>
-              A collection of my favorite brain teasers and logic puzzles.
-            </StyledCardDescription>
-            <StyledViewButton>
-              View Collection →
-            </StyledViewButton>
-          </StyledRiddleCard>
-        )}
+        <StyledRiddleCard
+          ref={revealCard}
+          tabIndex="0"
+          onClick={handleCardClick}
+          onKeyDown={e => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault()
+              handleCardClick()
+            }
+          }}>
+          <StyledCardTitle>Brain Teasers</StyledCardTitle>
+          <StyledCardDescription>
+            A collection of my favorite brain teasers and logic puzzles.
+          </StyledCardDescription>
+          <StyledViewButton>View Collection &rarr;</StyledViewButton>
+        </StyledRiddleCard>
       </StyledCardContainer>
     </StyledContainer>
   )
 }
 
-Blog.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      question: PropTypes.string.isRequired,
-      answer: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-}
-
-export default Blog 
+export default Blog

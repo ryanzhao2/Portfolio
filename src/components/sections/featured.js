@@ -15,7 +15,6 @@ const StyledContainer = styled(Section)`
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  padding: 0;
   max-width: 1200px;
 `
 
@@ -279,7 +278,7 @@ const Featured = ({ data }) => {
   }
 
   return (
-    <StyledContainer id="projects" ref={revealContainer}>
+    <StyledContainer id="featured" ref={revealContainer}>
       <Heading ref={revealTitle}>
         {data?.title || 'projects'}
       </Heading>
@@ -398,4 +397,4 @@ Featured.propTypes = {
   }).isRequired,
 }
 
-export default Featured 
+export default Featured

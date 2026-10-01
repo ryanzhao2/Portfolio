@@ -175,7 +175,7 @@ const About = ({ data }) => {
   return (
     <StyledContainer id="about" ref={revealContainer}>
       <Introduction>
-        <Greeting>{greeting}</Greeting>
+        {greeting && <Greeting>{greeting}</Greeting>}
         <IntroName>{name}</IntroName>
         <IntroBody>
           <StyledContent>
