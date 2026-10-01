@@ -214,8 +214,10 @@ const Projects = ({ data }) => {
 
   // Removed archives section title and description
 
+  if (!data?.length) return null
+
   return (
-    <StyledContainer id="projects">
+    <StyledContainer id="archives">
       {/* Removed <StyledTitle> and <StyledSubtext> for archives */}
       <StyledGrid>
         <TransitionGroup className="projects">

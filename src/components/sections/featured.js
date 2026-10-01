@@ -278,7 +278,7 @@ const Featured = ({ data }) => {
   }
 
   return (
-    <StyledContainer id="featured" ref={revealContainer}>
+    <StyledContainer id="projects" ref={revealContainer}>
       <Heading ref={revealTitle}>
         {data?.title || 'projects'}
       </Heading>

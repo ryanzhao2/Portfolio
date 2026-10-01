@@ -13,7 +13,7 @@ const StyledContainer = styled(Section)`
   align-items: flex-start;
   width: 100%;
   max-width: 1200px;
-  padding-top: 60px;
+  padding-top: 150px;
 
   ${media.tablet`padding-top: 40px;`};
 `
